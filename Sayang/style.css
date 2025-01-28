@@ -1,55 +1,54 @@
 body {
-    background-color: rgb(246, 172, 172);
-    color: black;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
-    font-weight: 700;
-  }
+  background-color: rgb(246, 172, 172);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  * {
-    outline: none;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-  }
+* {
+  outline: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
 
-  img {
-    display: flex;
-    margin: auto;
-    padding-top: 5rem;
-  }
+img {
+  margin-bottom: 2rem;
+  max-width: 250px;
+}
 
-  h1 {
-    text-align: center;
-    color: rgb(255, 255, 255);
-  }
+h1 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin-bottom: 1.5rem;
+}
 
-  #button {
-    margin-top: 40px;
-  }
+#buttons {
+  display: flex;
+  gap: 20px;
+}
 
-  button {
-    width: 130px;
-    height: 60px;
-    font-size: larger;
-    border-radius: 25px;
-    cursor: pointer;
-    border: none;
-    margin-top: 30px;
-  }
+button {
+  width: 130px;
+  height: 60px;
+  font-size: larger;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-  #sayang {
-    margin-left: 450px;
-  }
+button:hover {
+  background-color: pink;
+  color: white;
+}
 
-  #gak {
-    position: fixed;
-    margin-left: 100px;
-  }
-
-  button:hover {
-    background-color: pink;
-    color: white;
-  }
+#no {
+  position: relative;
+}

@@ -1,24 +1,56 @@
-const gak = document.getElementById("gak");
-const sayang = document.getElementById("sayang");
-const h1 = document.querySelector("h1")
-const img = document.querySelector("img")
+const img = document.getElementById("main-img");
+const question = document.getElementById("question");
+const yesButton = document.getElementById("yes");
+const noButton = document.getElementById("no");
 
+const questions = [
+    { text: "Haii ... Jawab Ya", reason: "Karena aku lucu banget kan? 😁" },
+    { text: "Kamu Suka Kucing 😺", reason: "Hemm Makasih ya 🥰" },
+    { text: "Kamu Suka Es Krim 🍦", reason: "It is funny 🥺" },
+    { text: "Kamu sayang aku gak?", reason: "That's Not so Bad🍦" } // Pertanyaan terakhir
+];
 
+let currentQuestion = 0;
 const width = window.innerWidth - 300;
 const height = window.innerHeight - 200;
 
-gak.addEventListener("click", function () {
-  const random = Math.random();
-  const randomWidth = random * width;
-  const randomHeight = random * height;
-  gak.style.left = randomWidth + "px";
-  gak.style.top = randomHeight + "px";
-});
+// Fungsi untuk menampilkan pertanyaan berikutnya
+function showNextQuestion(answer) {
+    // Menampilkan alasan untuk pertanyaan selain pertanyaan terakhir
+    if (currentQuestion < questions.length - 1) {
+        if (answer === "yes") {
+            alert("Kamu memilih 'Iya'! 🥰");
+        } else if (answer === "no") {
+            alert("Kamu memilih 'Tidak'! 😅");
+        }
 
+        currentQuestion++;
+        question.textContent = questions[currentQuestion].text;
+        alert(questions[currentQuestion].reason); // Menampilkan alasan
+    } else if (currentQuestion === questions.length - 1) {
+        question.textContent = questions[currentQuestion].text;
+        yesButton.addEventListener("click", showFinalGif);
+        noButton.addEventListener("click", moveNoButton);
+    }
+}
 
-sayang.addEventListener("click", function () {
-  h1.textContent = "makasiii, aku juga sayang kamu"
-  gak.style.display = "none"
-  sayang.style.display = "none"
-  img.src = "gif/tkthao219-bubududu (1).gif"
-})
+// Fungsi untuk memindahkan tombol "Tidak"
+function moveNoButton() {
+    const randomWidth = Math.random() * width;
+    const randomHeight = Math.random() * height;
+    noButton.style.position = "absolute";
+    noButton.style.left = randomWidth + "px";
+    noButton.style.top = randomHeight + "px";
+}
+
+// Fungsi untuk menampilkan GIF akhir
+function showFinalGif() {
+    img.src = "gif/gif2.gif";
+    question.textContent = "Makasii, aku juga sayang kamu!";
+    yesButton.style.display = "none";
+    noButton.style.display = "none";
+}
+
+// Event listener untuk tombol "Iya" dan "Tidak"
+yesButton.addEventListener("click", () => showNextQuestion("yes"));
+noButton.addEventListener("click", () => showNextQuestion("no"));
