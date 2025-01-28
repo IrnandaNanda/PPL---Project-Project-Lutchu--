@@ -19,9 +19,9 @@ function showNextQuestion(answer) {
     // Menampilkan alasan untuk pertanyaan selain pertanyaan terakhir
     if (currentQuestion < questions.length - 1) {
         if (answer === "yes") {
-            alert("Kamu memilih 'Iya'! 🥰");
+            alert("yeay! 🥰");
         } else if (answer === "no") {
-            alert("Kamu memilih 'Tidak'! 😅");
+            alert("Hemmm! 😅");
         }
 
         currentQuestion++;
